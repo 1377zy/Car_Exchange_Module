@@ -34,6 +34,27 @@ For quick local development without setting up MongoDB:
    - API: http://localhost:5000
    - Frontend (if built): http://localhost:3000
 
+### Starting the Application
+
+The application includes a smart start script that automatically detects the environment and starts the appropriate server:
+
+```
+npm start
+```
+
+You can also start specific versions of the server:
+
+```
+# Start with production server (requires MongoDB)
+npm run start:prod
+
+# Start with development server (uses mock database)
+npm run start:dev
+
+# Start with demo server (simplified version)
+npm run start:demo
+```
+
 ### Local Deployment (With MongoDB)
 
 For a more production-like local deployment:
