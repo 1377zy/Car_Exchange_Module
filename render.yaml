@@ -4,22 +4,20 @@ services:
     name: car-exchange-api
     env: node
     buildCommand: npm install
-    startCommand: node server.js
+    startCommand: npm start
     envVars:
       - key: NODE_ENV
         value: production
       - key: MONGODB_URI
-        fromDatabase:
-          name: car-exchange-db
-          property: connectionString
+        value: mongodb+srv://Car_User:carsforlife@cluster0.e6b7c.mongodb.net/car_exchange?retryWrites=true&w=majority&appName=Cluster0
       - key: JWT_SECRET
-        generateValue: true
+        value: 8f7a9e2c4b6d1f3a5e7c9b2d4f6a8e1c3b5d7f9a2e4c6b8
       - key: CORS_ORIGINS
         value: "*"
       - key: FRONTEND_URL
         value: https://car-exchange-frontend.onrender.com
       - key: PORT
-        value: 5000
+        value: 10000
       - key: REDIS_ENABLED
         value: false
 
