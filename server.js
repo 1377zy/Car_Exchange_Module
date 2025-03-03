@@ -16,6 +16,16 @@ const app = express();
 app.use(express.json({ extended: false }));
 app.use(cors());
 
+// Health check endpoint
+app.get('/api/health', (req, res) => {
+  res.status(200).json({ 
+    status: 'ok',
+    message: 'Car Exchange Module API is running',
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV || 'development'
+  });
+});
+
 // Define Routes
 app.use('/', require('./routes/index'));
 app.use('/api/users', require('./routes/users'));
@@ -46,23 +56,25 @@ const PORT = process.env.PORT || 5000;
 // Create HTTP server
 const server = http.createServer(app);
 
-// Connect to MongoDB
-mongoose
-  .connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
-  .then(() => {
-    console.log('MongoDB Connected...');
-    
-    // Initialize Socket.io
-    socketManager.initialize(server);
-    
-    // Start server
-    server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-  })
-  .catch(err => {
-    console.error(err.message);
-    // Exit process with failure
-    process.exit(1);
-  });
+// Start server first, then connect to MongoDB
+server.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+  
+  // Connect to MongoDB
+  mongoose
+    .connect(process.env.MONGODB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    })
+    .then(() => {
+      console.log('MongoDB Connected...');
+      
+      // Initialize Socket.io
+      socketManager.initialize(server);
+    })
+    .catch(err => {
+      console.error('MongoDB Connection Error:', err.message);
+      console.log('Server will continue to run without MongoDB connection');
+      // Don't exit the process, let the server continue to run
+    });
+});
