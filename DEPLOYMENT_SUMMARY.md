@@ -37,18 +37,21 @@ The Car Exchange Module is now ready for deployment to various environments. Thi
 **Best for**: Production deployment with minimal infrastructure management.
 
 **Steps**:
-1. Run `node deploy-to-render.js` to prepare the application
-2. Push code to GitHub
-3. Create a new Web Service on Render.com
-4. Connect your GitHub repository
-5. Configure build and start commands
-6. Add environment variables
-7. Deploy
+1. Push code to GitHub
+2. Create a new Web Service on Render.com for the backend API
+3. Connect your GitHub repository
+4. Use the render.yaml configuration file for automatic setup
+5. Create a new Static Site on Render.com for the frontend
+6. Connect the same GitHub repository
+7. Set the build command to `cd client && npm install && npm run build`
+8. Set the publish directory to `client/build`
 
 **Features**:
 - Automatic CI/CD from GitHub
 - Managed database options
 - SSL/TLS certificates included
+- Separate services for backend API and frontend
+- Environment variables configured in render.yaml
 
 ### 4. Cloud Deployment (Railway.app)
 
@@ -134,6 +137,33 @@ The repository includes several files to assist with deployment:
 - **heroku.yml**: Heroku configuration
 - **app.json**: Application metadata for cloud services
 - **Procfile**: Heroku process file
+
+## Recent Updates
+
+The Car Exchange Module has been updated with the following improvements:
+
+1. **Enhanced Client-Side Components**:
+   - Added comprehensive authentication system with login and registration
+   - Created dashboard with statistics overview
+   - Implemented notification system with real-time updates
+   - Added responsive layout with header and footer components
+
+2. **Improved Deployment Configuration**:
+   - Updated render.yaml to support both backend API and frontend deployment
+   - Configured environment variables for production deployment
+   - Simplified Dockerfile for easier deployment
+   - Added health check endpoint for better monitoring
+
+3. **Database Integration**:
+   - Connected to MongoDB Atlas for persistent data storage
+   - Added test script for database connection verification
+   - Implemented graceful error handling for database connection issues
+
+4. **Security Enhancements**:
+   - Added JWT-based authentication
+   - Secured API endpoints with authentication middleware
+   - Implemented role-based authorization
+   - Used environment variables for sensitive information
 
 ## Deployment Summary
 

@@ -49,14 +49,17 @@ Use this checklist to ensure you've completed all necessary steps for deploying 
 
 ### Cloud Deployment - Render.com
 
-- [ ] Run `node deploy-to-render.js` to prepare for deployment
+- [ ] Update render.yaml file with both backend API and frontend configurations
 - [ ] Push code to GitHub
-- [ ] Create a new Web Service on Render.com
+- [ ] Create a new Web Service on Render.com for the backend API
 - [ ] Connect GitHub repository
-- [ ] Configure build and start commands
-- [ ] Add environment variables
-- [ ] Deploy the application
+- [ ] Use the render.yaml configuration for automatic setup
+- [ ] Create a new Static Site on Render.com for the frontend
+- [ ] Connect the same GitHub repository
+- [ ] Set the build command to `cd client && npm install && npm run build`
+- [ ] Set the publish directory to `client/build`
 - [ ] Verify deployment was successful
+- [ ] Test API endpoints and frontend functionality
 
 ### Cloud Deployment - Railway.app
 
@@ -93,6 +96,22 @@ Use this checklist to ensure you've completed all necessary steps for deploying 
 - [ ] Verify email and SMS functionality (if applicable)
 - [ ] Check CORS configuration is correct
 - [ ] Test frontend integration (if applicable)
+
+## Client-Side Components
+
+- [ ] Verify all React components are properly created:
+  - [ ] Authentication components (Login, Register, PrivateRoute)
+  - [ ] Layout components (Header, Footer)
+  - [ ] Dashboard and main page components
+  - [ ] Notification components
+- [ ] Check that all necessary utility files exist:
+  - [ ] Authentication context
+  - [ ] Notification handlers
+  - [ ] API service files
+- [ ] Ensure all client-side routes are properly configured
+- [ ] Verify that the client can connect to the backend API
+- [ ] Test user authentication flow (login, register, logout)
+- [ ] Test protected routes and authorization
 
 ## Monitoring and Maintenance
 
