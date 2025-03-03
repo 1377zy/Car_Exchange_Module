@@ -17,7 +17,15 @@
     "seed": "node scripts/seedDatabase.js",
     "seed:mock": "node seed-mock-data.js",
     "postinstall": "cd client && npm install && npm run build",
-    "build": "cd client && npm install && npm run build"
+    "build": "cd client && npm install && npm run build",
+    "deploy": "node deploy.js",
+    "deploy:render": "node deploy-to-render.js",
+    "deploy:railway": "node deploy-to-railway.js",
+    "deploy:heroku": "node deploy-to-heroku.js",
+    "deploy:local": "node deploy-local-dev.js",
+    "github:setup": "node setup-github-repo.js",
+    "verify": "node verify-deployment.js",
+    "check": "node check-environment.js"
   },
   "repository": {
     "type": "git",
