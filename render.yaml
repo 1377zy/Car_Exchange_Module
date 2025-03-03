@@ -1,0 +1,39 @@
+services:
+  # Backend API service
+  - type: web
+    name: car-exchange-api
+    env: node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        fromDatabase:
+          name: car-exchange-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CORS_ORIGINS
+        value: "*"
+      - key: FRONTEND_URL
+        value: https://car-exchange-frontend.onrender.com
+      - key: PORT
+        value: 5000
+      - key: REDIS_ENABLED
+        value: false
+
+  # Frontend service (if needed)
+  - type: web
+    name: car-exchange-frontend
+    env: static
+    buildCommand: cd client && npm install && npm run build
+    staticPublishPath: ./client/build
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://car-exchange-api.onrender.com
+
+databases:
+  - name: car-exchange-db
+    databaseName: car_exchange
+    ipAllowList: []  # Allow connections from anywhere

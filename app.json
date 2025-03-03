@@ -1,0 +1,48 @@
+{
+  "name": "Car Exchange Module",
+  "description": "A comprehensive dealership management system for vehicle inventory, lead management, and customer communications",
+  "repository": "https://github.com/your-username/car-exchange-module",
+  "keywords": ["node", "express", "mongodb", "dealership", "crm"],
+  "env": {
+    "NODE_ENV": {
+      "description": "Environment (production, development, test)",
+      "value": "production"
+    },
+    "MONGODB_URI": {
+      "description": "MongoDB connection URI",
+      "required": true
+    },
+    "JWT_SECRET": {
+      "description": "Secret key for JWT authentication",
+      "generator": "secret"
+    },
+    "CORS_ORIGINS": {
+      "description": "Allowed CORS origins (comma-separated)",
+      "value": "*"
+    },
+    "FRONTEND_URL": {
+      "description": "URL of the frontend application",
+      "required": true
+    },
+    "REDIS_ENABLED": {
+      "description": "Enable Redis for caching",
+      "value": "false"
+    }
+  },
+  "addons": [
+    {
+      "plan": "mongolab:sandbox"
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    }
+  }
+}
