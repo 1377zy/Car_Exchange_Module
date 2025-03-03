@@ -50,7 +50,42 @@ The Car Exchange Module is now ready for deployment to various environments. Thi
 - Managed database options
 - SSL/TLS certificates included
 
-### 4. Docker Deployment
+### 4. Cloud Deployment (Railway.app)
+
+**Best for**: Quick deployment with automatic infrastructure provisioning.
+
+**Steps**:
+1. Run `node deploy-to-railway.js` to prepare the application
+2. Install the Railway CLI: `npm install -g @railway/cli`
+3. Login to Railway: `railway login`
+4. Link your project: `railway link`
+5. Deploy your application: `railway up`
+6. Set environment variables: `railway variables set JWT_SECRET=your_secret`
+
+**Features**:
+- Simple CLI-based deployment
+- Automatic infrastructure provisioning
+- Free tier available for testing
+
+### 5. Cloud Deployment (Heroku)
+
+**Best for**: Managed PaaS deployment with add-ons ecosystem.
+
+**Steps**:
+1. Run `node deploy-to-heroku.js` to prepare the application
+2. Install the Heroku CLI: `npm install -g heroku`
+3. Login to Heroku: `heroku login`
+4. Create a new Heroku app: `heroku create car-exchange-module`
+5. Set environment variables: `heroku config:set JWT_SECRET=your_secret`
+6. Add MongoDB addon: `heroku addons:create mongolab:sandbox`
+7. Push your code to Heroku: `git push heroku master`
+
+**Features**:
+- Extensive add-ons ecosystem
+- Easy scaling
+- Managed database options
+
+### 6. Docker Deployment
 
 **Best for**: Containerized deployment in various environments.
 
@@ -83,6 +118,9 @@ The repository includes several files to assist with deployment:
 
 - **deploy-local-dev.js**: Script for local development setup
 - **deploy-to-render.js**: Script for Render.com deployment preparation
+- **deploy-to-railway.js**: Script for Railway.app deployment preparation
+- **deploy-to-heroku.js**: Script for Heroku deployment preparation
+- **setup-github-repo.js**: Script to help set up a GitHub repository
 - **start.js**: Smart start script that detects the environment
 - **server.js**: Main server file for production
 - **server-dev.js**: Development server with mock database
@@ -92,7 +130,10 @@ The repository includes several files to assist with deployment:
 - **docker-compose.yml**: Docker Compose configuration
 - **render.yaml**: Render.com configuration
 - **railway.json**: Railway.app configuration
+- **railway.toml**: Railway.app configuration
+- **heroku.yml**: Heroku configuration
 - **app.json**: Application metadata for cloud services
+- **Procfile**: Heroku process file
 
 ## Next Steps
 
