@@ -55,6 +55,37 @@ For a more production-like local deployment:
    npm start
    ```
 
+### Cloud Deployment (Render.com)
+
+For deploying to Render.com:
+
+1. Run the Render deployment preparation script:
+   ```
+   node deploy-to-render.js
+   ```
+
+2. Push your code to GitHub:
+   ```
+   git push origin master
+   ```
+
+3. Go to [Render.com](https://render.com) and create a new Web Service
+
+4. Connect your GitHub repository
+
+5. Configure the following settings:
+   - Build Command: `./build.sh`
+   - Start Command: `npm start`
+
+6. Add environment variables in the Render dashboard:
+   - `NODE_ENV`: production
+   - `JWT_SECRET`: [your-secure-secret]
+   - `MONGODB_URI`: [your-mongodb-connection-string]
+   - `CORS_ORIGINS`: [your-frontend-url]
+   - `FRONTEND_URL`: [your-frontend-url]
+
+7. Deploy your application
+
 ### Docker Deployment
 
 For containerized deployment:
