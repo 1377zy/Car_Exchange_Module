@@ -107,6 +107,67 @@ For deploying to Render.com:
 
 7. Deploy your application
 
+### Cloud Deployment (Railway.app)
+
+For deploying to Railway.app:
+
+1. Run the Railway deployment preparation script:
+   ```
+   node deploy-to-railway.js
+   ```
+
+2. Install the Railway CLI:
+   ```
+   npm install -g @railway/cli
+   ```
+
+3. Login to Railway and deploy:
+   ```
+   railway login
+   railway link
+   railway up
+   ```
+
+4. Set environment variables:
+   ```
+   railway variables set JWT_SECRET=your_secret
+   ```
+
+5. Access your deployed application at the URL provided by Railway
+
+### Cloud Deployment (Heroku)
+
+For deploying to Heroku:
+
+1. Run the Heroku deployment preparation script:
+   ```
+   node deploy-to-heroku.js
+   ```
+
+2. Install the Heroku CLI:
+   ```
+   npm install -g heroku
+   ```
+
+3. Login to Heroku and deploy:
+   ```
+   heroku login
+   heroku create car-exchange-module
+   git push heroku master
+   ```
+
+4. Set environment variables:
+   ```
+   heroku config:set JWT_SECRET=your_secret
+   ```
+
+5. Add MongoDB addon:
+   ```
+   heroku addons:create mongolab:sandbox
+   ```
+
+6. Access your deployed application at the URL provided by Heroku
+
 ### Docker Deployment
 
 For containerized deployment:
@@ -122,6 +183,27 @@ For containerized deployment:
    - API: http://localhost:5000
    - Frontend: http://localhost:3000
    - Monitoring: http://localhost:9090 (Prometheus) and http://localhost:3001 (Grafana)
+
+## Deployment Documentation
+
+The repository includes several documents to help with deployment:
+
+- **[DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)**: Comprehensive guide for deploying to various environments
+- **[DEPLOYMENT_SUMMARY.md](DEPLOYMENT_SUMMARY.md)**: Summary of deployment options and features
+- **[DEPLOYMENT_CHECKLIST.md](DEPLOYMENT_CHECKLIST.md)**: Checklist to ensure all deployment steps are completed
+- **[GITHUB_SETUP.md](GITHUB_SETUP.md)**: Guide for setting up a GitHub repository
+- **[GITHUB_DEPLOYMENT.md](GITHUB_DEPLOYMENT.md)**: Instructions for deploying from GitHub
+
+## Deployment Scripts
+
+The repository includes several scripts to help with deployment:
+
+- **deploy-local-dev.js**: Script for local development setup
+- **deploy-to-render.js**: Script for Render.com deployment
+- **deploy-to-railway.js**: Script for Railway.app deployment
+- **deploy-to-heroku.js**: Script for Heroku deployment
+- **setup-github-repo.js**: Script to help set up a GitHub repository
+- **verify-deployment.js**: Script to verify deployment is working correctly
 
 ## API Endpoints
 
