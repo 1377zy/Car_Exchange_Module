@@ -14,4 +14,18 @@ router.get('/', (req, res) => {
   });
 });
 
+/**
+ * @route   GET /api/health
+ * @desc    Health check endpoint
+ * @access  Public
+ */
+router.get('/api/health', (req, res) => {
+  res.status(200).json({ 
+    status: 'ok',
+    message: 'Car Exchange Module API is running',
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV || 'development'
+  });
+});
+
 module.exports = router;
