@@ -1,0 +1,223 @@
+name: Car Exchange Module CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  # Test job
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    
+    services:
+      # MongoDB service container
+      mongodb:
+        image: mongo:6.0
+        ports:
+          - 27017:27017
+        env:
+          MONGO_INITDB_DATABASE: car_exchange_test
+      
+      # Redis service container
+      redis:
+        image: redis:7
+        ports:
+          - 6379:6379
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      # Server tests
+      - name: Install server dependencies
+        working-directory: ./server
+        run: npm ci
+      
+      - name: Run server linting
+        working-directory: ./server
+        run: npm run lint
+      
+      - name: Run server tests
+        working-directory: ./server
+        run: npm test
+        env:
+          NODE_ENV: test
+          MONGODB_URI: mongodb://localhost:27017/car_exchange_test
+          JWT_SECRET: test_jwt_secret
+          REDIS_ENABLED: true
+          REDIS_HOST: localhost
+          REDIS_PORT: 6379
+      
+      # Client tests
+      - name: Install client dependencies
+        working-directory: ./client
+        run: npm ci
+      
+      - name: Run client linting
+        working-directory: ./client
+        run: npm run lint
+      
+      - name: Run client tests
+        working-directory: ./client
+        run: npm test
+        env:
+          CI: true
+  
+  # Build job
+  build:
+    name: Build
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop')
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      # Build client
+      - name: Install client dependencies
+        working-directory: ./client
+        run: npm ci
+      
+      - name: Build client
+        working-directory: ./client
+        run: npm run build
+        env:
+          REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
+      
+      # Build server
+      - name: Install server dependencies
+        working-directory: ./server
+        run: npm ci --production
+      
+      # Package application
+      - name: Create deployment package
+        run: |
+          mkdir -p deployment
+          cp -r server deployment/
+          mkdir -p deployment/client/build
+          cp -r client/build/* deployment/client/build/
+          cp Dockerfile docker-compose.yml .env.example deployment/
+          cd deployment && tar -czvf ../car-exchange-module.tar.gz .
+      
+      # Upload artifacts
+      - name: Upload deployment package
+        uses: actions/upload-artifact@v3
+        with:
+          name: deployment-package
+          path: car-exchange-module.tar.gz
+  
+  # Deploy to staging
+  deploy-staging:
+    name: Deploy to Staging
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
+    environment:
+      name: staging
+      url: https://staging.carexchange.example.com
+    
+    steps:
+      - name: Download deployment package
+        uses: actions/download-artifact@v3
+        with:
+          name: deployment-package
+      
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.7.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      
+      - name: Deploy to staging server
+        run: |
+          scp -o StrictHostKeyChecking=no car-exchange-module.tar.gz ${{ secrets.SSH_USER }}@${{ secrets.STAGING_HOST }}:/tmp/
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.STAGING_HOST }} << 'EOF'
+            mkdir -p ~/car-exchange-staging
+            tar -xzvf /tmp/car-exchange-module.tar.gz -C ~/car-exchange-staging
+            cd ~/car-exchange-staging
+            echo "${{ secrets.STAGING_ENV }}" > .env
+            docker-compose down
+            docker-compose up -d --build
+            rm /tmp/car-exchange-module.tar.gz
+          EOF
+      
+      - name: Notify Slack on success
+        uses: 8398a7/action-slack@v3
+        with:
+          status: ${{ job.status }}
+          fields: repo,message,commit,author,action,eventName,ref,workflow
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: success()
+  
+  # Deploy to production
+  deploy-production:
+    name: Deploy to Production
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    environment:
+      name: production
+      url: https://carexchange.example.com
+    
+    steps:
+      - name: Download deployment package
+        uses: actions/download-artifact@v3
+        with:
+          name: deployment-package
+      
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.7.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      
+      - name: Deploy to production server
+        run: |
+          scp -o StrictHostKeyChecking=no car-exchange-module.tar.gz ${{ secrets.SSH_USER }}@${{ secrets.PRODUCTION_HOST }}:/tmp/
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.PRODUCTION_HOST }} << 'EOF'
+            mkdir -p ~/car-exchange-production
+            tar -xzvf /tmp/car-exchange-module.tar.gz -C ~/car-exchange-production
+            cd ~/car-exchange-production
+            echo "${{ secrets.PRODUCTION_ENV }}" > .env
+            docker-compose down
+            docker-compose up -d --build
+            rm /tmp/car-exchange-module.tar.gz
+          EOF
+      
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ github.run_number }}
+          release_name: Release v${{ github.run_number }}
+          body: |
+            Release v${{ github.run_number }} deployed to production
+            Commit: ${{ github.sha }}
+          draft: false
+          prerelease: false
+      
+      - name: Notify Slack on success
+        uses: 8398a7/action-slack@v3
+        with:
+          status: ${{ job.status }}
+          fields: repo,message,commit,author,action,eventName,ref,workflow
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: success()

@@ -1,0 +1,32 @@
+.notification-item {
+  transition: background-color 0.2s ease;
+}
+
+.notification-item.high {
+  border-left: 3px solid #f44336;
+}
+
+.notification-item.normal {
+  border-left: 3px solid #2196f3;
+}
+
+.notification-item.low {
+  border-left: 3px solid #4caf50;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .notification-item .MuiListItemSecondaryAction-root {
+    position: relative;
+    transform: none;
+    top: auto;
+    right: auto;
+    display: flex;
+    margin-top: 8px;
+    justify-content: flex-end;
+  }
+  
+  .notification-item .MuiListItemText-root {
+    padding-right: 0;
+  }
+}

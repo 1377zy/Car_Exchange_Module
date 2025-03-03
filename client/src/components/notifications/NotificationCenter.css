@@ -1,0 +1,237 @@
+.notification-center {
+  position: relative;
+}
+
+.notification-toggle {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  color: #495057;
+  position: relative;
+}
+
+.notification-toggle:hover,
+.notification-toggle:focus {
+  color: #212529;
+  background: none;
+}
+
+.notification-toggle::after {
+  display: none;
+}
+
+.notification-icon {
+  font-size: 1.25rem;
+}
+
+.notification-menu {
+  width: 350px;
+  padding: 0;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.notification-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #f8f9fa;
+}
+
+.notification-header-title {
+  margin: 0;
+  font-weight: 600;
+  color: #212529;
+}
+
+.notification-actions {
+  display: flex;
+  align-items: center;
+}
+
+.mark-read-button,
+.settings-button {
+  padding: 0.25rem 0.5rem;
+  color: #6c757d;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.mark-read-button:hover,
+.settings-button:hover {
+  color: #212529;
+}
+
+.notification-content-container {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 400px;
+}
+
+.notification-list {
+  margin: 0;
+}
+
+.notification-item {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  border-left: 3px solid transparent;
+  transition: background-color 0.2s ease;
+}
+
+.notification-item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.notification-item.unread {
+  background-color: rgba(13, 110, 253, 0.05);
+  border-left-color: #0d6efd;
+}
+
+.notification-item.high {
+  border-left-color: #dc3545;
+}
+
+.notification-item.normal {
+  border-left-color: #0d6efd;
+}
+
+.notification-item.low {
+  border-left-color: #6c757d;
+}
+
+.notification-content {
+  position: relative;
+}
+
+.notification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.notification-title {
+  font-weight: 600;
+  margin-right: 0.5rem;
+  color: #212529;
+}
+
+.unread-badge {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.notification-message {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #6c757d;
+  margin-bottom: 0.25rem;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.notification-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.notification-time {
+  color: #adb5bd;
+  font-size: 0.75rem;
+}
+
+.notification-type-badge {
+  font-size: 0.65rem;
+  text-transform: capitalize;
+  padding: 0.25rem 0.5rem;
+}
+
+.notification-loading,
+.notification-error,
+.notification-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  color: #6c757d;
+  text-align: center;
+}
+
+.notification-loading {
+  gap: 0.5rem;
+}
+
+.notification-permission-prompt {
+  padding: 0.75rem 1rem;
+  background-color: #fff8e1;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.notification-permission-prompt p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #856404;
+  text-align: center;
+}
+
+.view-all-link {
+  text-align: center;
+  font-weight: 500;
+  color: #0d6efd;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.view-all-link:hover {
+  background-color: rgba(13, 110, 253, 0.05);
+}
+
+/* Animation for new notifications */
+@keyframes highlight-notification {
+  0% {
+    background-color: rgba(13, 110, 253, 0.2);
+  }
+  100% {
+    background-color: rgba(13, 110, 253, 0.05);
+  }
+}
+
+.notification-item.new {
+  animation: highlight-notification 2s ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .notification-menu {
+    width: 300px;
+  }
+  
+  .notification-content-container {
+    max-height: 300px;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .notification-item,
+  .notification-item.new {
+    animation: none;
+    transition: none;
+  }
+}

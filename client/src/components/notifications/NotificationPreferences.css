@@ -1,0 +1,106 @@
+.notification-preferences-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.notification-preferences-section {
+  margin-bottom: 24px;
+}
+
+.notification-preferences-section-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.notification-preferences-section-title .MuiSvgIcon-root {
+  margin-right: 8px;
+}
+
+.notification-volume-slider {
+  padding: 0 16px;
+}
+
+.notification-test-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.notification-type-grid {
+  margin-top: 16px;
+}
+
+.notification-permission-status {
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 4px;
+}
+
+.notification-permission-status.granted {
+  background-color: rgba(76, 175, 80, 0.1);
+  border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.notification-permission-status.denied {
+  background-color: rgba(244, 67, 54, 0.1);
+  border: 1px solid rgba(244, 67, 54, 0.3);
+}
+
+.notification-permission-status.default {
+  background-color: rgba(255, 152, 0, 0.1);
+  border: 1px solid rgba(255, 152, 0, 0.3);
+}
+
+.notification-permission-status.unsupported {
+  background-color: rgba(158, 158, 158, 0.1);
+  border: 1px solid rgba(158, 158, 158, 0.3);
+}
+
+.notification-info-box {
+  margin-top: 16px;
+  padding: 12px;
+  background-color: rgba(33, 150, 243, 0.1);
+  border: 1px solid rgba(33, 150, 243, 0.3);
+  border-radius: 4px;
+}
+
+.notification-action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .notification-preferences-container {
+    max-width: 100%;
+  }
+  
+  .notification-preferences-container .MuiTabs-root {
+    min-height: 48px;
+  }
+  
+  .notification-preferences-container .MuiTab-root {
+    min-height: 48px;
+    font-size: 0.75rem;
+  }
+  
+  .notification-preferences-container .MuiTab-wrapper {
+    flex-direction: column;
+  }
+  
+  .notification-preferences-container .MuiTab-labelIcon .MuiTab-wrapper > *:first-child {
+    margin-bottom: 4px;
+  }
+  
+  .notification-test-buttons {
+    flex-direction: column;
+  }
+  
+  .notification-test-buttons .MuiButton-root {
+    margin-bottom: 8px;
+  }
+}

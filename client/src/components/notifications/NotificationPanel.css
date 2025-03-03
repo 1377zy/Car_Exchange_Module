@@ -1,0 +1,40 @@
+.notification-panel {
+  max-width: 100%;
+}
+
+/* Custom scrollbar for notification panel */
+.notification-panel .MuiBox-root::-webkit-scrollbar {
+  width: 6px;
+}
+
+.notification-panel .MuiBox-root::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.notification-panel .MuiBox-root::-webkit-scrollbar-thumb {
+  background: #bdbdbd;
+  border-radius: 3px;
+}
+
+.notification-panel .MuiBox-root::-webkit-scrollbar-thumb:hover {
+  background: #9e9e9e;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .notification-panel {
+    width: 100% !important;
+    max-height: calc(100vh - 70px) !important;
+  }
+  
+  .notification-panel .MuiTabs-root {
+    min-height: 42px;
+  }
+  
+  .notification-panel .MuiTab-root {
+    min-height: 42px;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}

@@ -1,0 +1,129 @@
+.notification-detail-modal .modal-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 1rem 1.5rem;
+}
+
+.notification-detail-modal .modal-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.notification-detail-modal .modal-body {
+  padding: 1.5rem;
+}
+
+.notification-detail-modal .modal-footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 1rem 1.5rem;
+}
+
+.notification-metadata {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 0.5rem;
+}
+
+.metadata-item {
+  display: flex;
+  align-items: center;
+}
+
+.metadata-label {
+  font-weight: 600;
+  margin-right: 0.5rem;
+  color: #495057;
+}
+
+.metadata-value {
+  color: #6c757d;
+}
+
+.notification-message {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #212529;
+  white-space: pre-line;
+}
+
+.notification-data {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 0.5rem;
+}
+
+.notification-data h6 {
+  margin-bottom: 0.75rem;
+  color: #495057;
+}
+
+.data-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.data-item {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.data-item:last-child {
+  border-bottom: none;
+}
+
+.data-key {
+  font-weight: 600;
+  margin-right: 0.5rem;
+  color: #495057;
+}
+
+.data-value {
+  color: #6c757d;
+  word-break: break-word;
+}
+
+/* Button styling */
+.notification-detail-modal .btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.notification-detail-modal .btn-outline-danger:hover {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.notification-detail-modal .btn-outline-primary:hover {
+  background-color: #0d6efd;
+  color: #fff;
+}
+
+/* Badge styling */
+.notification-detail-modal .badge {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .notification-metadata {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .notification-detail-modal .modal-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  
+  .notification-detail-modal .modal-footer .btn {
+    justify-content: center;
+  }
+}

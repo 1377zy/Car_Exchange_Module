@@ -1,0 +1,48 @@
+[
+  {
+    "_id": "lead_001",
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "john.doe@example.com",
+    "phone": "555-111-2222",
+    "source": "Website",
+    "status": "new",
+    "assignedTo": "user_agent_001",
+    "notes": "Interested in Toyota Camry",
+    "vehicleInterests": [
+      "vehicle_001"
+    ],
+    "createdAt": "2025-03-03T01:25:44.297Z",
+    "updatedAt": "2025-03-03T01:25:44.297Z"
+  },
+  {
+    "_id": "lead_002",
+    "firstName": "Jane",
+    "lastName": "Smith",
+    "email": "jane.smith@example.com",
+    "phone": "555-333-4444",
+    "source": "Phone Call",
+    "status": "contacted",
+    "assignedTo": "user_agent_001",
+    "notes": "Looking for a family SUV",
+    "vehicleInterests": [],
+    "createdAt": "2025-03-03T01:25:44.297Z",
+    "updatedAt": "2025-03-03T01:25:44.297Z"
+  },
+  {
+    "_id": "lead_003",
+    "firstName": "Robert",
+    "lastName": "Johnson",
+    "email": "robert.johnson@example.com",
+    "phone": "555-555-6666",
+    "source": "Referral",
+    "status": "qualified",
+    "assignedTo": "user_manager_001",
+    "notes": "Interested in Ford F-150, has trade-in",
+    "vehicleInterests": [
+      "vehicle_003"
+    ],
+    "createdAt": "2025-03-03T01:25:44.297Z",
+    "updatedAt": "2025-03-03T01:25:44.297Z"
+  }
+]

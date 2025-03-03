@@ -1,0 +1,39 @@
+[
+  {
+    "_id": "communication_001",
+    "lead": "lead_001",
+    "type": "email",
+    "direction": "outbound",
+    "subject": "Toyota Camry Information",
+    "content": "Thank you for your interest in the Toyota Camry. Here are the details you requested...",
+    "sentBy": "user_agent_001",
+    "sentAt": "2025-03-02T01:25:44.298Z",
+    "status": "sent",
+    "createdAt": "2025-03-02T01:25:44.298Z",
+    "updatedAt": "2025-03-02T01:25:44.298Z"
+  },
+  {
+    "_id": "communication_002",
+    "lead": "lead_001",
+    "type": "email",
+    "direction": "inbound",
+    "subject": "Re: Toyota Camry Information",
+    "content": "Thank you for the information. I would like to schedule a test drive...",
+    "receivedAt": "2025-03-02T13:25:44.298Z",
+    "status": "read",
+    "createdAt": "2025-03-02T13:25:44.298Z",
+    "updatedAt": "2025-03-02T13:25:44.298Z"
+  },
+  {
+    "_id": "communication_003",
+    "lead": "lead_003",
+    "type": "sms",
+    "direction": "outbound",
+    "content": "Hi Robert, just confirming your appointment tomorrow at 2 PM to discuss the Ford F-150.",
+    "sentBy": "user_manager_001",
+    "sentAt": "2025-03-03T00:25:44.298Z",
+    "status": "sent",
+    "createdAt": "2025-03-03T00:25:44.298Z",
+    "updatedAt": "2025-03-03T00:25:44.298Z"
+  }
+]

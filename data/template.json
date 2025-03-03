@@ -1,0 +1,34 @@
+[
+  {
+    "_id": "template_001",
+    "name": "New Lead Welcome",
+    "type": "email",
+    "subject": "Welcome to Car Exchange",
+    "content": "Dear {{lead.firstName}},\n\nThank you for your interest in our dealership. We are excited to help you find your perfect vehicle.\n\nBest regards,\n{{user.name}}",
+    "createdBy": "user_admin_001",
+    "isActive": true,
+    "createdAt": "2025-03-03T01:25:44.299Z",
+    "updatedAt": "2025-03-03T01:25:44.299Z"
+  },
+  {
+    "_id": "template_002",
+    "name": "Appointment Confirmation",
+    "type": "email",
+    "subject": "Your Appointment Confirmation",
+    "content": "Dear {{lead.firstName}},\n\nThis is to confirm your appointment on {{appointment.date}} for a {{appointment.type}}.\n\nWe look forward to seeing you!\n\nBest regards,\n{{user.name}}",
+    "createdBy": "user_admin_001",
+    "isActive": true,
+    "createdAt": "2025-03-03T01:25:44.299Z",
+    "updatedAt": "2025-03-03T01:25:44.299Z"
+  },
+  {
+    "_id": "template_003",
+    "name": "Appointment Reminder",
+    "type": "sms",
+    "content": "Hi {{lead.firstName}}, just a reminder about your appointment tomorrow at {{appointment.time}} for your {{appointment.type}}. Reply Y to confirm or call us to reschedule.",
+    "createdBy": "user_admin_001",
+    "isActive": true,
+    "createdAt": "2025-03-03T01:25:44.299Z",
+    "updatedAt": "2025-03-03T01:25:44.299Z"
+  }
+]

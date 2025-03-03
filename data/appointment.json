@@ -1,0 +1,28 @@
+[
+  {
+    "_id": "appointment_001",
+    "lead": "lead_001",
+    "vehicle": "vehicle_001",
+    "type": "test_drive",
+    "date": "2025-03-04T01:25:44.297Z",
+    "status": "scheduled",
+    "notes": "Test drive for Toyota Camry",
+    "assignedTo": "user_agent_001",
+    "createdBy": "user_agent_001",
+    "createdAt": "2025-03-03T01:25:44.297Z",
+    "updatedAt": "2025-03-03T01:25:44.297Z"
+  },
+  {
+    "_id": "appointment_002",
+    "lead": "lead_003",
+    "vehicle": "vehicle_003",
+    "type": "sales_consultation",
+    "date": "2025-03-05T01:25:44.297Z",
+    "status": "scheduled",
+    "notes": "Discuss financing options for F-150",
+    "assignedTo": "user_manager_001",
+    "createdBy": "user_manager_001",
+    "createdAt": "2025-03-03T01:25:44.297Z",
+    "updatedAt": "2025-03-03T01:25:44.297Z"
+  }
+]

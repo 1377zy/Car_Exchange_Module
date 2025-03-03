@@ -1,0 +1,35 @@
+[
+  {
+    "_id": "notification_001",
+    "user": "user_agent_001",
+    "type": "lead",
+    "title": "New Lead Assigned",
+    "message": "You have been assigned a new lead: John Doe",
+    "priority": "high",
+    "link": "/leads/lead_001",
+    "read": false,
+    "createdAt": "2025-03-02T01:25:44.299Z"
+  },
+  {
+    "_id": "notification_002",
+    "user": "user_agent_001",
+    "type": "communication",
+    "title": "New Email Received",
+    "message": "John Doe has replied to your email",
+    "priority": "medium",
+    "link": "/communications/communication_002",
+    "read": true,
+    "createdAt": "2025-03-02T13:25:44.299Z"
+  },
+  {
+    "_id": "notification_003",
+    "user": "user_manager_001",
+    "type": "appointment",
+    "title": "Upcoming Appointment",
+    "message": "You have an appointment with Robert Johnson tomorrow at 2 PM",
+    "priority": "medium",
+    "link": "/appointments/appointment_002",
+    "read": false,
+    "createdAt": "2025-03-03T00:25:44.299Z"
+  }
+]

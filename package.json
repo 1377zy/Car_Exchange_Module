@@ -1,0 +1,50 @@
+{
+  "name": "car-exchange-module",
+  "version": "1.0.0",
+  "description": "Business Development Center (BDC) application for auto dealerships",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "install-client": "cd client && npm install",
+    "build-client": "cd client && npm run build",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run install-client && npm run build-client",
+    "seed": "node scripts/seedDatabase.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1377zy/Car_Exchange_Module.git"
+  },
+  "keywords": [
+    "bdc",
+    "auto",
+    "dealership",
+    "leads",
+    "crm"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/1377zy/Car_Exchange_Module/issues"
+  },
+  "homepage": "https://github.com/1377zy/Car_Exchange_Module#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "config": "^3.3.9",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-validator": "^7.0.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.5.0",
+    "nodemailer": "^6.9.4",
+    "socket.io": "^4.7.2",
+    "twilio": "^4.16.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.1",
+    "nodemon": "^3.0.1"
+  }
+}

@@ -1,0 +1,95 @@
+[
+  {
+    "_id": "vehicle_001",
+    "make": "Toyota",
+    "model": "Camry",
+    "year": 2022,
+    "trim": "XSE",
+    "price": 28500,
+    "mileage": 12500,
+    "exteriorColor": "Midnight Black",
+    "interiorColor": "Black",
+    "vin": "ABC123XYZ456789",
+    "stockNumber": "T12345",
+    "fuelType": "Gasoline",
+    "transmission": "Automatic",
+    "engine": "2.5L 4-Cylinder",
+    "description": "Well-maintained Toyota Camry with low mileage.",
+    "features": [
+      "Bluetooth",
+      "Backup Camera",
+      "Leather Seats",
+      "Sunroof"
+    ],
+    "status": "available",
+    "images": [
+      "https://example.com/images/camry1.jpg",
+      "https://example.com/images/camry2.jpg"
+    ],
+    "createdBy": "user_admin_001",
+    "createdAt": "2025-03-03T01:25:44.296Z",
+    "updatedAt": "2025-03-03T01:25:44.296Z"
+  },
+  {
+    "_id": "vehicle_002",
+    "make": "Honda",
+    "model": "Accord",
+    "year": 2021,
+    "trim": "Sport",
+    "price": 26800,
+    "mileage": 18000,
+    "exteriorColor": "Crystal White",
+    "interiorColor": "Gray",
+    "vin": "DEF456UVW789012",
+    "stockNumber": "H54321",
+    "fuelType": "Gasoline",
+    "transmission": "Automatic",
+    "engine": "1.5L Turbo 4-Cylinder",
+    "description": "Sporty Honda Accord with excellent fuel economy.",
+    "features": [
+      "Apple CarPlay",
+      "Android Auto",
+      "Heated Seats",
+      "Lane Assist"
+    ],
+    "status": "available",
+    "images": [
+      "https://example.com/images/accord1.jpg",
+      "https://example.com/images/accord2.jpg"
+    ],
+    "createdBy": "user_manager_001",
+    "createdAt": "2025-03-03T01:25:44.296Z",
+    "updatedAt": "2025-03-03T01:25:44.296Z"
+  },
+  {
+    "_id": "vehicle_003",
+    "make": "Ford",
+    "model": "F-150",
+    "year": 2020,
+    "trim": "XLT",
+    "price": 35900,
+    "mileage": 25000,
+    "exteriorColor": "Race Red",
+    "interiorColor": "Black",
+    "vin": "GHI789RST012345",
+    "stockNumber": "F98765",
+    "fuelType": "Gasoline",
+    "transmission": "Automatic",
+    "engine": "3.5L V6 EcoBoost",
+    "description": "Powerful Ford F-150 with towing package.",
+    "features": [
+      "4WD",
+      "Towing Package",
+      "Bed Liner",
+      "Navigation"
+    ],
+    "status": "available",
+    "images": [
+      "https://example.com/images/f150_1.jpg",
+      "https://example.com/images/f150_2.jpg"
+    ],
+    "createdBy": "user_agent_001",
+    "createdAt": "2025-03-03T01:25:44.296Z",
+    "updatedAt": "2025-03-03T01:25:44.296Z"
+  }
+]

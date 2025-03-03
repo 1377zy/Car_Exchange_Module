@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offline - Car Exchange Module</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    
+    .offline-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+    }
+    
+    .offline-icon {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 2rem;
+      background-color: #e0e0e0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .offline-icon svg {
+      width: 60px;
+      height: 60px;
+      fill: #757575;
+    }
+    
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+    
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: #666;
+      max-width: 500px;
+      line-height: 1.5;
+    }
+    
+    .retry-button {
+      background-color: #1976d2;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    
+    .retry-button:hover {
+      background-color: #1565c0;
+    }
+    
+    .offline-features {
+      margin-top: 3rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      max-width: 800px;
+    }
+    
+    .feature {
+      background-color: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      width: 200px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 1rem;
+      background-color: #e3f2fd;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .feature-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: #1976d2;
+    }
+    
+    .feature h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+    
+    .feature p {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 0;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: #f0f0f0;
+      color: #666;
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.75rem;
+      }
+      
+      p {
+        font-size: 1rem;
+      }
+      
+      .offline-icon {
+        width: 100px;
+        height: 100px;
+      }
+      
+      .offline-features {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .feature {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="offline-container">
+    <div class="offline-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path d="M23.64 7c-.45-.34-4.93-4-11.64-4-1.5 0-2.89.19-4.15.48L10.52 6c1.1-.12 2.19-.18 3.48-.18 3.58 0 7.15 1.13 9.83 3.36L23.64 7zm-6.52 2.15c-.66-.57-4.91-3.15-9.12-3.15-.79 0-1.54.09-2.26.21l2.11 2.09c.4-.03.8-.05 1.21-.05 2.79 0 5.46 1.12 7.74 2.93l.32-2.03zm-8.95 2.01l7.66 7.66-1.41 1.41L6 11.82l-5.66 5.65-1.41-1.41L4.59 9.41 2.3 7.12l1.41-1.41 2.28 2.3 1.41-1.41 2.28 2.28 1.41-1.41-2.29-2.29 1.42-1.42 2.28 2.29 1.41-1.41-2.28-2.28 1.41-1.41 2.28 2.28 1.41-1.41-2.28-2.28 1.41-1.41 5.66 5.65-1.41 1.41-5.66-5.65z"/>
+      </svg>
+    </div>
+    
+    <h1>You're Offline</h1>
+    <p>It seems you're not connected to the internet. Some features of the Car Exchange Module may not be available while offline.</p>
+    
+    <button class="retry-button" onclick="window.location.reload()">
+      Try Again
+    </button>
+    
+    <div class="offline-features">
+      <div class="feature">
+        <div class="feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+          </svg>
+        </div>
+        <h3>Cached Data</h3>
+        <p>You can still access previously loaded data while offline.</p>
+      </div>
+      
+      <div class="feature">
+        <div class="feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+          </svg>
+        </div>
+        <h3>Secure</h3>
+        <p>Your data remains secure even when offline.</p>
+      </div>
+      
+      <div class="feature">
+        <div class="feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+          </svg>
+        </div>
+        <h3>Auto Sync</h3>
+        <p>Changes will sync automatically when you're back online.</p>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    &copy; 2023 Car Exchange Module. All rights reserved.
+  </footer>
+  
+  <script>
+    // Check if we're back online
+    window.addEventListener('online', () => {
+      window.location.reload();
+    });
+    
+    // Add event listener for the retry button
+    document.querySelector('.retry-button').addEventListener('click', () => {
+      window.location.reload();
+    });
+  </script>
+</body>
+</html>

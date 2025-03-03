@@ -1,0 +1,22 @@
+[
+  {
+    "_id": "vehicleInterest_001",
+    "lead": "lead_001",
+    "vehicle": "vehicle_001",
+    "interestLevel": "high",
+    "notes": "Very interested in the Camry, scheduled test drive",
+    "createdBy": "user_agent_001",
+    "createdAt": "2025-03-02T01:25:44.299Z",
+    "updatedAt": "2025-03-02T01:25:44.299Z"
+  },
+  {
+    "_id": "vehicleInterest_002",
+    "lead": "lead_003",
+    "vehicle": "vehicle_003",
+    "interestLevel": "medium",
+    "notes": "Interested in the F-150, but concerned about price",
+    "createdBy": "user_manager_001",
+    "createdAt": "2025-03-01T01:25:44.299Z",
+    "updatedAt": "2025-03-01T01:25:44.299Z"
+  }
+]

@@ -1,0 +1,61 @@
+.notification-bell-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.notification-bell-button {
+  position: relative;
+}
+
+.notification-bell-icon {
+  color: #757575;
+  transition: color 0.2s ease;
+}
+
+.notification-bell-icon.active {
+  color: #f44336;
+}
+
+.notification-bell-animate {
+  animation: bell-shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+.notification-permission-button {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.notification-popover {
+  max-width: 400px;
+  max-height: 500px;
+}
+
+@keyframes bell-shake {
+  0% { transform: rotate(0); }
+  15% { transform: rotate(10deg); }
+  30% { transform: rotate(-10deg); }
+  45% { transform: rotate(6deg); }
+  60% { transform: rotate(-6deg); }
+  75% { transform: rotate(3deg); }
+  85% { transform: rotate(-3deg); }
+  92% { transform: rotate(1deg); }
+  100% { transform: rotate(0); }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .notification-popover .MuiPopover-paper {
+    width: calc(100% - 20px);
+    max-width: none;
+    margin: 0 10px;
+    max-height: calc(100vh - 70px);
+  }
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "_id": "user_admin_001",
+    "name": "Admin User",
+    "email": "admin@carexchange.com",
+    "password": "$2a$10$YxEgfYLM9cSkEyc2DuZh9.htW4rZbg2fVsBif8Oq9NFFySnePYti.",
+    "role": "admin",
+    "phone": "555-123-4567",
+    "department": "Administration",
+    "isActive": true,
+    "lastActive": "2025-03-03T01:25:44.295Z",
+    "date": "2025-03-03T01:25:44.295Z"
+  },
+  {
+    "_id": "user_manager_001",
+    "name": "Manager User",
+    "email": "manager@carexchange.com",
+    "password": "$2a$10$9is7zXnZyH1ikTw69Y5SZuvw7VQ5KaBTClZIr8wNKOCDHvTk/OxDq",
+    "role": "manager",
+    "phone": "555-234-5678",
+    "department": "Sales",
+    "isActive": true,
+    "lastActive": "2025-03-03T01:25:44.295Z",
+    "date": "2025-03-03T01:25:44.295Z"
+  },
+  {
+    "_id": "user_agent_001",
+    "name": "Agent User",
+    "email": "agent@carexchange.com",
+    "password": "$2a$10$eo42WsRrlkIaOaFYXcyaqedkeqvPvMTGtkmm5VXz8dWcxg.MdYJjC",
+    "role": "agent",
+    "phone": "555-345-6789",
+    "department": "Sales",
+    "isActive": true,
+    "lastActive": "2025-03-03T01:25:44.295Z",
+    "date": "2025-03-03T01:25:44.295Z"
+  }
+]
